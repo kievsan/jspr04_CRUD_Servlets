@@ -1,8 +1,7 @@
-package ru.mail.knhel7.controller;
+package ru.mail.knhel7.controller_service_repository;
 
 import com.google.gson.Gson;
 import ru.mail.knhel7.model.Post;
-import ru.mail.knhel7.service.PostService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

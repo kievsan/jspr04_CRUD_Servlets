@@ -1,4 +1,4 @@
-package ru.mail.knhel7.repository;
+package ru.mail.knhel7.controller_service_repository;
 
 import ru.mail.knhel7.model.Post;
 

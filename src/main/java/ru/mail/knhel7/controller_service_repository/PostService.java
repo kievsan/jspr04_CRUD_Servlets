@@ -1,8 +1,7 @@
-package ru.mail.knhel7.service;
+package ru.mail.knhel7.controller_service_repository;
 
 import ru.mail.knhel7.exception.NotFoundException;
 import ru.mail.knhel7.model.Post;
-import ru.mail.knhel7.repository.PostRepository;
 
 import java.util.List;
 
