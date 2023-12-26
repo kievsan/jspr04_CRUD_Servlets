@@ -1,14 +1,14 @@
-package ru.mail.knhel7.servlet;
+package ru.mail.knhel7;
 
-import ru.mail.knhel7.controller.PostController;
-import ru.mail.knhel7.repository.PostRepository;
-import ru.mail.knhel7.service.PostService;
+import ru.mail.knhel7.controller_service_repository.PostController;
+import ru.mail.knhel7.controller_service_repository.PostRepository;
+import ru.mail.knhel7.controller_service_repository.PostService;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MainServlet extends HttpServlet {
+public class CRUDServlet extends HttpServlet {
   private PostController controller;
 
   @Override
