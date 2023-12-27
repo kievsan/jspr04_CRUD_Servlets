@@ -40,7 +40,7 @@ Content-Type: application/json
 
 {
   "id": "222",
-  "content": "Дикиеие помидоры на рынке"
+  "content": "Дикие помидоры на рынке"
 }
 
 ###
@@ -78,13 +78,13 @@ Content-Type: application/json
 ###
 
 # удаление поста
-DELETE {{baseUrl}}/products/5
+DELETE {{baseUrl}}/posts/5
 Content-Type: application/json
 
 ###
 
 # удаление поста
-DELETE {{baseUrl}}/products/555
+DELETE {{baseUrl}}/posts/555
 Content-Type: application/json
 
 ####
