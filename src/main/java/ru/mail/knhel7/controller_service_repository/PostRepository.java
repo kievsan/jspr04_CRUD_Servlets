@@ -1,25 +1,45 @@
 package ru.mail.knhel7.controller_service_repository;
 
 import ru.mail.knhel7.model.Post;
-
-import java.util.Collections;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.Optional;
 
-// Stub
+
 public class PostRepository {
-  public List<Post> all() {
-    return Collections.emptyList();
+
+  private PostRepository(){}
+
+  public static PostRepository get() {
+    return RepoHolder.HOLDER_INSTANCE;
+  }
+
+  private static class RepoHolder {
+    public static final PostRepository HOLDER_INSTANCE = new PostRepository();
+  }
+
+  private final AtomicLong ID = new AtomicLong(0);
+  private final ConcurrentHashMap<Long, Post> posts = new ConcurrentHashMap<>();
+
+  public ConcurrentHashMap<Long, Post> getPosts() {
+    return posts;
   }
 
   public Optional<Post> getById(long id) {
-    return Optional.empty();
+    return Optional.ofNullable(posts.get(id));
   }
 
   public Post save(Post post) {
-    return post;
+    return post.getID() == 0 ? newPost(post) : newPost(getById(post.getID()).orElse(newPost(post)));
   }
 
-  public void removeById(long id) {
+  private Post newPost(Post post){
+    final var newPost = new Post(ID.incrementAndGet(), post.getContent());
+    posts.put(newPost.getID(), newPost);
+    return newPost;
+  }
+
+  public Optional<Post> removeById(long id) {
+    return Optional.ofNullable(posts.remove(id));
   }
 }
