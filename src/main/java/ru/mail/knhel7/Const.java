@@ -6,7 +6,7 @@ public abstract class Const {
     public static final String POST = "POST";
 
     public static final String PATH = "/api/posts";
-    public static final String PATH_WITH_ID = PATH + "/\\d+";
+    public static final String PATH_ID = PATH + "/\\d+";
 
     public static final String APP_JSON = "application/json";
 }
