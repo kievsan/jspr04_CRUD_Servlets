@@ -1,0 +1,95 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8080/api
+
+# добавить пост
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "content": "Лучшие помидоры на рынке"
+}
+
+###
+
+# добавить пост
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "id": "0",
+  "content": "Худшие помидоры на рынке"
+}
+
+###
+
+# добавить пост
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "id": "2",
+  "content": "Лучшие помидоры на рынке"
+}
+
+###
+
+# добавить пост
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "id": "222",
+  "content": "Дикиеие помидоры на рынке"
+}
+
+###
+
+# добавить пост
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "description": "Очень сочные и ароматные помидорки"
+}
+
+###
+
+# добавить пост
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "description": "Самые сочные и ароматные помидорки"
+}
+
+###
+
+# получить ВСЕ посты
+GET {{baseUrl}}/posts
+Content-Type: application/json
+
+###
+
+# получить пост
+GET {{baseUrl}}/posts/2
+Content-Type: application/json
+
+###
+
+# удаление поста
+DELETE {{baseUrl}}/products/5
+Content-Type: application/json
+
+###
+
+# удаление поста
+DELETE {{baseUrl}}/products/555
+Content-Type: application/json
+
+####
+
+# поиск
+# GET {{baseUrl}}/posts/?search=помидор
+# Content-Type: application/json
+
