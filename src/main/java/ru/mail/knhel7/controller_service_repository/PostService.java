@@ -1,5 +1,6 @@
 package ru.mail.knhel7.controller_service_repository;
 
+import org.springframework.stereotype.Service;
 import ru.mail.knhel7.exception.NotFoundPostException;
 import ru.mail.knhel7.model.Post;
 
@@ -9,6 +10,7 @@ import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
+@Service
 public class PostService {
 
   private final PostRepository repository;
