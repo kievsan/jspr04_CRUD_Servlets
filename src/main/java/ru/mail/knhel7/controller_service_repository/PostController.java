@@ -2,7 +2,6 @@ package ru.mail.knhel7.controller_service_repository;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
-import org.springframework.stereotype.Controller;
 import ru.mail.knhel7.exception.NotFoundPostException;
 import ru.mail.knhel7.model.Post;
 

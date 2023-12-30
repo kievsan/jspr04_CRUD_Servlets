@@ -34,11 +34,11 @@ public class CRUDServlet extends HttpServlet {
       } else if (method.equals(DELETE) && path.matches(PATH_ID)) {
           controller.removeById(parseId(path), resp);
       } else {
-        resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+          resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
       }
     } catch (Exception e) {
-      resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-      e.printStackTrace();
+        resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        e.printStackTrace();
     }
   }
 
