@@ -1,25 +1,21 @@
 package ru.mail.knhel7.controller_service_repository;
 
+import org.springframework.stereotype.Repository;
 import ru.mail.knhel7.model.Post;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.Optional;
 
 
+@Repository
 public class PostRepository {
 
-  private PostRepository(){}
-
-  public static PostRepository get() {
-    return RepoHolder.HOLDER_INSTANCE;
-  }
-
-  private static class RepoHolder {
-    public static final PostRepository HOLDER_INSTANCE = new PostRepository();
-  }
-
   private final AtomicLong ID = new AtomicLong(0);
-  private final ConcurrentHashMap<Long, Post> posts = new ConcurrentHashMap<>();
+  private final ConcurrentHashMap<Long, Post> posts;
+
+  public PostRepository(){
+    posts = new ConcurrentHashMap<>();
+  }
 
   public ConcurrentHashMap<Long, Post> getPosts() {
     return posts;
