@@ -1,22 +1,21 @@
 package ru.mail.knhel7;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.mail.knhel7.controller_service_repository.PostController;
-import ru.mail.knhel7.controller_service_repository.PostRepository;
-import ru.mail.knhel7.controller_service_repository.PostService;
 import static ru.mail.knhel7.Const.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class CRUDServlet extends HttpServlet {
   private PostController controller;
 
   @Override
   public void init() {
-    final var repository = PostRepository.get();
-    final var service = new PostService(repository);
-    controller = new PostController(service);
+      final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
+      controller = context.getBean(PostController.class);
   }
 
   @Override
@@ -35,11 +34,11 @@ public class CRUDServlet extends HttpServlet {
       } else if (method.equals(DELETE) && path.matches(PATH_ID)) {
           controller.removeById(parseId(path), resp);
       } else {
-        resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+          resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
       }
     } catch (Exception e) {
-      resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-      e.printStackTrace();
+        resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        e.printStackTrace();
     }
   }
 
